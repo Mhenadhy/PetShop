@@ -8,8 +8,11 @@ import scissors from "../../assets/scissors.svg"
 import toothbrush from "../../assets/toothbrush.svg"
 export default function Banho(){
     const MainBanho = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
-    height: 100v;
+    height: 180vh;
     `
     // Primeira sessao importante
     const Funcinamento = styled.section`
@@ -37,6 +40,9 @@ export default function Banho(){
     h2{
         font-size: 2.3em;
     }
+    button:hover{
+        background-color: #438dda;
+    }
     `
     const Butao = styled.button`
     width: 30vw;
@@ -45,6 +51,7 @@ export default function Banho(){
     border-radius: 1em;
     font-size: 1.5em;
     color: #fff;
+    cursor: pointer;
     background-color: #175EA8;
     `
     const FigureBanho = styled.figure`
@@ -114,6 +121,54 @@ export default function Banho(){
             descriçao: "Corte de unha"
         }
     ])
+    // Terceira sessão importante
+    const Cuidados = styled.section`
+    width: 100%;
+    height: 60vh;
+    `
+    const CuidadosButton = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 100%;
+    margin-left: 10px;
+    & :hover{
+        background-color: #F0F0F0;
+    }
+    button{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #fff;
+        color: #000;
+        font-weight: 700;
+        font-size: 1.3em;
+        border-radius: 0.7em;
+        border: none;
+        cursor: pointer;
+        width: 30vw;
+        height: 20vh;
+    }
+    figcaption{
+        font-size: 1em;
+        opacity: 0.7;
+        font-weight: 100;
+    }
+    `
+    const [Butoes, setButoes] = useState([
+        {
+            serviço: "Escovaçao dental  ⭢",
+            descriçao: "Escovamos os dentes do seu pet, Para tirar o bafo de merda"
+        },
+        {
+            serviço: "Hidratação  ⭢",
+            descriçao:"usamos um produto para hidrataçao da pelagem"
+        },
+    ])
     
     
     return(
@@ -140,6 +195,19 @@ export default function Banho(){
                 ))}
                 </Icones>
             </Etapas>
+            <Cuidados>
+                <h1>Cuidados adicionais</h1>
+                <CuidadosButton>
+                    {Butoes.map((item)=>(
+                        <button>{item.serviço}
+                        <figcaption>{item.descriçao}</figcaption>
+                        </button>
+
+                    ))}
+
+                </CuidadosButton>
+
+            </Cuidados>
 
         </MainBanho>
     )
